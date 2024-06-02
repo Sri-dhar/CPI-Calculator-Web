@@ -1,3 +1,12 @@
+# How to run
+1. Clone the repo
+2.  ```rustup target add wasm32-unknown-unknown```
+3.  ```cargo install --locked trunk```
+4.  ```trunk serve``` 
+3. Open the URL and Force Cacheless Refresh ( CTRL + F5 )
+
+
+
 # eframe template
 
 [![dependency status](https://deps.rs/repo/github/emilk/eframe_template/status.svg)](https://deps.rs/repo/github/emilk/eframe_template)
