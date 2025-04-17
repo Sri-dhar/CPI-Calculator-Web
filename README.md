@@ -1,93 +1,94 @@
-# How to run
-1. Clone the repo
-2.  ```rustup target add wasm32-unknown-unknown```
-3.  ```cargo install --locked trunk```
-4.  ```trunk serve``` 
-3. Open the URL and Force Cacheless Refresh ( CTRL + F5 )
+# CPI Calculator
 
+This project is a CPI Calculator built using Rust. It provides a graphical user interface (GUI) to manage and calculate grades, including functionalities like changing the scale, showing/hiding an action bar, and resetting input fields.
 
+## Features
 
-# eframe template
+- Change scale
+- Show/hide action bar
+- Reset inputs
+- Quit and rerun the application
 
-[![dependency status](https://deps.rs/repo/github/emilk/eframe_template/status.svg)](https://deps.rs/repo/github/emilk/eframe_template)
-[![Build Status](https://github.com/emilk/eframe_template/workflows/CI/badge.svg)](https://github.com/emilk/eframe_template/actions?workflow=CI)
+## Frameworks Used
 
-This is a template repo for [eframe](https://github.com/emilk/egui/tree/master/crates/eframe), a framework for writing apps using [egui](https://github.com/emilk/egui/).
+- **Rust**: The programming language used for this project.
+- **eframe**: A framework for creating native applications.
+- **egui**: A GUI library for Rust.
 
-The goal is for this to be the simplest way to get started writing a GUI app in Rust.
+## Installation
 
-You can compile your app natively or for the web, and share it using Github Pages.
+### Prerequisites
 
-## Getting started
+- Ensure you have [Rust](https://www.rust-lang.org/tools/install) installed on your machine.
 
-Start by clicking "Use this template" at https://github.com/emilk/eframe_template/ or follow [these instructions](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
+### Installation Steps
 
-Change the name of the crate: Chose a good name for your project, and change the name to it in:
-* `Cargo.toml`
-    * Change the `package.name` from `eframe_template` to `your_crate`.
-    * Change the `package.authors`
-* `main.rs`
-    * Change `eframe_template::TemplateApp` to `your_crate::TemplateApp`
-* `index.html`
-    * Change the `<title>eframe template</title>` to `<title>your_crate</title>`. optional.
-* `assets/sw.js`
-  * Change the `'./eframe_template.js'` to `./your_crate.js` (in `filesToCache` array)
-  * Change the `'./eframe_template_bg.wasm'` to `./your_crate_bg.wasm` (in `filesToCache` array)
+#### FOR WINDOWS
+- Download from the [Release Section](https://github.com/Sri-dhar/CPI-Calculator/releases/tag/window_beta)
+- Extract the zip and Run the exectuable
 
-### Learning about egui
+ Or
+Build it Yourself
 
-`src/app.rs` contains a simple example app. This is just to give some inspiration - most of it can be removed if you like.
+1. Download and install the [Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/).
+2. If you don't have the MinGW64 toolchain installed, download and install the latest version from [GNU ToolChains MinGW64](https://gnutoolchains.com/mingw64/).
+3. Open Command Prompt.
+4. Clone the repository:
+    ```sh
+    git clone https://github.com/Sri-dhar/CPI-Calculator.git
+    ```
+5. Navigate to the project directory:
+    ```sh
+    cd CPI-Calculator
+    ```
+6. Build and run the project:
+    ```sh
+    cargo run
+    ```
+#### FOR MAC OS
 
-The official egui docs are at <https://docs.rs/egui>. If you prefer watching a video introduction, check out <https://www.youtube.com/watch?v=NtUkr_z7l84>. For inspiration, check out the [the egui web demo](https://emilk.github.io/egui/index.html) and follow the links in it to its source code.
+1. Open Terminal.
+2. Clone the repository:
+    ```sh
+    git clone https://github.com/Sri-dhar/CPI-Calculator.git
+    ```
+3. Navigate to the project directory:
+    ```sh
+    cd CPI-Calculator
+    ```
+4. Build and run the project:
+    ```sh
+    cargo run
+    ```
 
-### Testing locally
+#### FOR LINUX
+- Download from the [Release Section](https://github.com/Sri-dhar/CPI-Calculator/releases/tag/window_beta)
+- Extract the zip and Run the exectuable
 
-Make sure you are using the latest version of stable rust by running `rustup update`.
+ Or
+Build it Yourself
 
-`cargo run --release`
+1. Open Terminal.
+2. Clone the repository:
+    ```sh
+    git clone https://github.com/Sri-dhar/CPI-Calculator.git
+    ```
+3. Navigate to the project directory:
+    ```sh
+    cd CPI-Calculator
+    ```
+4. Build and run the project:
+    ```sh
+    cargo run
+    ```
 
-On Linux you need to first run:
+## Usage
 
-`sudo apt-get install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev libxkbcommon-dev libssl-dev`
+1. After running the project, a window will appear with the GUI.
+2. Enter the required data to calculate your Grade.
+3. Use the menu to change the scale, show/hide the action bar, reset inputs, or quit the application.
 
-On Fedora Rawhide you need to run:
+## Contributing
 
-`dnf install clang clang-devel clang-tools-extra libxkbcommon-devel pkg-config openssl-devel libxcb-devel gtk3-devel atk fontconfig-devel`
+Contributions are welcome! Please fork the repository and submit a pull request for review.
 
-### Web Locally
-
-You can compile your app to [WASM](https://en.wikipedia.org/wiki/WebAssembly) and publish it as a web page.
-
-We use [Trunk](https://trunkrs.dev/) to build for web target.
-1. Install the required target with `rustup target add wasm32-unknown-unknown`.
-2. Install Trunk with `cargo install --locked trunk`.
-3. Run `trunk serve` to build and serve on `http://127.0.0.1:8080`. Trunk will rebuild automatically if you edit the project.
-4. Open `http://127.0.0.1:8080/index.html#dev` in a browser. See the warning below.
-
-> `assets/sw.js` script will try to cache our app, and loads the cached version when it cannot connect to server allowing your app to work offline (like PWA).
-> appending `#dev` to `index.html` will skip this caching, allowing us to load the latest builds during development.
-
-### Web Deploy
-1. Just run `trunk build --release`.
-2. It will generate a `dist` directory as a "static html" website
-3. Upload the `dist` directory to any of the numerous free hosting websites including [GitHub Pages](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
-4. we already provide a workflow that auto-deploys our app to GitHub pages if you enable it.
-> To enable Github Pages, you need to go to Repository -> Settings -> Pages -> Source -> set to `gh-pages` branch and `/` (root).
->
-> If `gh-pages` is not available in `Source`, just create and push a branch called `gh-pages` and it should be available.
->
-> If you renamed the `main` branch to something else (say you re-initialized the repository with `master` as the initial branch), be sure to edit the github workflows `.github/workflows/pages.yml` file to reflect the change
-> ```yml
-> on:
->   push:
->     branches:
->       - <branch name>
-> ```
-
-You can test the template app at <https://emilk.github.io/eframe_template/>.
-
-## Updating egui
-
-As of 2023, egui is in active development with frequent releases with breaking changes. [eframe_template](https://github.com/emilk/eframe_template/) will be updated in lock-step to always use the latest version of egui.
-
-When updating `egui` and `eframe` it is recommended you do so one version at the time, and read about the changes in [the egui changelog](https://github.com/emilk/egui/blob/master/CHANGELOG.md) and [eframe changelog](https://github.com/emilk/egui/blob/master/crates/eframe/CHANGELOG.md).

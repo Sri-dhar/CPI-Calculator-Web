@@ -1,0 +1,229 @@
+:root {
+    --primary-color: #4a90e2; /* A softer blue */
+    --secondary-color: #f4f7f6; /* Light grey background */
+    --text-color: #333;
+    --border-color: #ddd;
+    --input-bg: #fff;
+    --button-hover: #357abd;
+    --result-bg: #e6f4ea;
+    --result-border: #b7e4c7;
+    --result-text: #1d6f42;
+    --error-bg: #fdecea;
+    --error-border: #f5c6cb;
+    --error-text: #721c24;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 2em;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+#app-container { /* Add a container for centering and max-width */
+    max-width: 700px;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5em;
+    font-weight: 300; /* Lighter font weight */
+}
+
+h3 {
+    color: var(--text-color);
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3em;
+    font-weight: 500;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 2em 0;
+}
+
+label {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 0.4em;
+    font-weight: 500; /* Slightly bolder */
+    font-size: 0.95em;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 350px; /* Adjust as needed */
+    background-color: var(--input-bg);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    font-size: 1em;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Style radio buttons for CPI options */
+input[type="radio"] {
+    margin-right: 8px;
+    vertical-align: middle; /* Align radio with label text */
+}
+input[type="radio"] + label {
+    display: inline-block; /* Keep label next to radio */
+    margin-top: 0; /* Reset margin for inline labels */
+    font-weight: normal; /* Normal weight for radio labels */
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-top: 15px;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-1px); /* Subtle lift effect */
+}
+
+button:active {
+    transform: translateY(0px);
+}
+
+/* Specific button styling */
+button.reset-button { /* Example if you want different styles */
+    background-color: #aaa;
+}
+button.reset-button:hover {
+    background-color: #888;
+}
+
+
+.course-item {
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #fdfdfd; /* Slightly off-white */
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.course-details {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.course-item label {
+    font-size: 0.9em;
+    font-weight: normal;
+    margin-top: 5px;
+}
+.course-item input[type="number"] {
+    max-width: 100px; /* Smaller width for grade input */
+}
+
+.result {
+    margin-top: 1.5em;
+    padding: 1em 1.5em;
+    background-color: var(--result-bg);
+    border: 1px solid var(--result-border);
+    border-left: 5px solid var(--result-text); /* Accent border */
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--result-text);
+}
+
+.error {
+    margin-top: 1.5em;
+    padding: 1em 1.5em;
+    background-color: var(--error-bg);
+    border: 1px solid var(--error-border);
+    border-left: 5px solid var(--error-text); /* Accent border */
+    border-radius: 6px;
+    color: var(--error-text);
+    font-size: 0.95em;
+}
+
+.grade-table-container {
+    margin-top: 2em;
+    padding: 1.5em;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.grade-table {
+    margin-top: 1em;
+    border-collapse: collapse;
+    width: auto; /* Let table size naturally */
+    margin-left: auto; /* Center table if container is wider */
+    margin-right: auto;
+}
+
+.grade-table th, .grade-table td {
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.grade-table th {
+    background-color: #f2f2f2;
+    font-weight: 500;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Add spacing between main sections */
+div > div {
+    margin-bottom: 20px;
+}
+
+/* Container for action buttons at the bottom */
+.action-buttons {
+    margin-top: 2em;
+    text-align: center; /* Center buttons */
+}
+
+/* Loading indicator styling */
+body.loading::before {
+    content: "Loading Calculator...";
+    display: block;
+    padding: 30px;
+    font-style: italic;
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+}

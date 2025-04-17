@@ -1,4 +1,3 @@
-#[derive(serde::Deserialize, serde::Serialize)]
 pub struct Semester {
     pub sem_no: f32,
     pub course_code: Vec<String>,
@@ -6,19 +5,6 @@ pub struct Semester {
     pub course_credit: Vec<f32>,
     pub total_credit: f32,
     pub total_credit_till_sem: f32,
-}
-
-impl Default for Semester {
-    fn default() -> Self {
-        Self {
-            sem_no: 0.0,
-            course_code: Vec::new(),
-            course_name: Vec::new(),
-            course_credit: Vec::new(),
-            total_credit: 0.0,
-            total_credit_till_sem: 0.0,
-        }
-    }
 }
 
 pub fn get_semesters(sem_no:f32) -> Option<Semester> {
