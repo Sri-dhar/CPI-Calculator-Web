@@ -24,13 +24,17 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Lowercase repository name
+      id: lower_repo
+      run: echo "repo_name=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
         context: .
         push: true
-        tags: ghcr.io/${{ github.repository }}:${{ github.sha }} # Tag with commit SHA
+        tags: ghcr.io/${{ steps.lower_repo.outputs.repo_name }}:${{ github.sha }} # Tag with commit SHA using lowercase repo name
         # Optionally, add a 'latest' tag for the main branch
         # tags: |
-        #   ghcr.io/${{ github.repository }}:${{ github.sha }}
+        #   ghcr.io/${{ steps.lower_repo.outputs.repo_name }}:${{ github.sha }}
         #   ${{ github.ref == 'refs/heads/main' && format('ghcr.io/{0}:latest', github.repository) || '' }}
