@@ -1,22 +1,11 @@
-# Use the official lightweight nginx image based on Alpine Linux
+# Use an official Nginx runtime as a parent image
 FROM nginx:alpine
 
-# Set the working directory inside the container
-WORKDIR /usr/share/nginx/html
+# Copy static website files from the 'static' directory to the default Nginx public HTML directory
+COPY ./static /usr/share/nginx/html
 
-# Remove default nginx static assets
-RUN rm -rf ./*
-
-# Copy the built static files from the host to the nginx html directory
-# Copy index.html and style.css first
-COPY static/index.html .
-COPY static/style.css .
-# Copy the wasm/js package contents into a 'pkg' subdirectory within the nginx root
-COPY pkg/ ./pkg/
-
-# Expose port 80 (the default nginx port)
+# Expose port 80 to allow traffic to Nginx
 EXPOSE 80
 
-# Start nginx when the container launches
-# '-g daemon off;' ensures nginx stays in the foreground so Docker keeps the container running
+# Command to run Nginx when the container launches
 CMD ["nginx", "-g", "daemon off;"]
